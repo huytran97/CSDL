@@ -1,0 +1,30 @@
+{% extends 'home/home.html' %}
+{% block body_block %}
+<div style="margin-top:80px;" class="container">
+    {% csrf_token %}
+    <div>
+        <a class="btn btn-primary btn-lg float-right" style="color:white" href="{% url 'paper_app:add_papers' %}">Thêm bài báo</a> <h1>Danh sách bài báo</h1>
+    </div>
+
+    <table style="width:100%">
+        <tr class="head">
+            <th style="width: 50px;">#</th>
+            <th>Tên bài báo</th>
+            <th style="width: 180px;">Thời gian xuất bản</th> 
+            <th>Chi tiết</th>
+            <th>Các tác giả</th>
+        </tr>
+    {% for paper in all_papers %}
+        <tr>
+            <td>{{paper.0}}</td>
+            <td>{{paper.1}}</td> 
+            <td>{{paper.3}}</td>
+            <td>{{paper.2}}</td>
+            <td>{{paper.4}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}

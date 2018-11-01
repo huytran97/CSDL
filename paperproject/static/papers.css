@@ -1,0 +1,44 @@
+table, th, td {
+    border: 1px solid rgb(161, 158, 158);
+}   
+
+.head{
+    background: black;
+    color: white;
+}
+th, td {
+    padding: 15px;
+}
+.bottom{
+    margin-top: 100px;
+}
+.divcenter{
+    position: absolute;
+    width: 800px;
+    height: 30px;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.divcenter1{
+    position: absolute;
+    width: 800px;
+    height: 30px;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.author{
+    position: absolute;
+    width: 800px;
+    height: 30px;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

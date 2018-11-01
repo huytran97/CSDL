@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'papers.css' %}">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>SOICT-PAPERS</title>
+</head>
+<body>
+  <!-- NAVbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+      <div>
+          <a class="navbar-brand" href="{% url 'index' %}">
+              <img src="https://image.flaticon.com/icons/svg/782/782795.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+              SOICT-PAPERS
+            </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li style="color :white">Xin chào {{user.last_name}}!
+          <a class="btn btn-danger" href="{% url 'logout' %}">Đăng xuất</a></li> 
+        </ul>
+        {% else %}
+        <li><a class="navbar-brand" href="{% url 'login' %}">Đăng nhập</a></li> 
+        {% endif %}     
+      </ul> 
+      </div>
+      </nav>
+{% block body_block %}
+  <!-- jumbotron -->
+        <div class="jumbotron">
+          <div class="container"><br>
+              <h1 class="display-4 text-center"><strong>Chào mừng !</strong></h1><br>
+              <p class="container lead col-md-6">Trang web quản lý bài báo khoa học viện Điện - Đại học Bách Khoa Hà Nội. Nơi các thầy cô tổng hợp thành tựu báo chí khoa học sau một năm nghiên cứu nhanh nhất, dễ dàng nhất, tiện lợi nhất.</p>
+              {% if user.is_authenticated %}
+              <p class="text-center"><a class="btn btn-primary btn-lg" role="button" href="{% url 'paper_app:papers' %}">Bắt đầu ngay</a></button></p>
+              {% else %}
+              <p class="text-center"><a class="btn btn-primary btn-lg" role="button" href="{% url 'register' %}">Bắt đầu ngay</a></button></p>
+              {% endif %}
+          </div>
+          </div>
+  <!-- Under -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+          <h1 class="left">Đơn giản</h1>
+          <p>Hệ thống được thiết kế tối giản nhưng hiện đại, hỗ trợ thầy/cô sử dụng dễ dàng nhất có thể.</p>
+      </div>
+      <div class="col-sm">
+          <h1 class="left">Chính xác</h1>
+          <p>Giảm thiểu tối đa lỗi phát sinh trong quá trình nhập liệu nhờ các tính năng gợi ý thông minh.</p>
+      </div>
+      <div class="col-sm">
+          <h1 class="left">Nhanh chóng</h1>
+        <p>Hệ thống vận hành trơn chu đáp ứng hàng trăm truy cập cùng lúc, các tính năng hỗ trợ nhập liệu giúp thầy cô nhanh chóng hoàn thiện khai báo.</p>
+      </div>
+    </div>
+  </div>
+
+    <nav class="navbar navbar-dark bg-dark bottom">
+      <div class="container">
+            <div style="color :darkgrey">Copyright Group 9 - DATABASE © 2018</div>
+            <div style="color :darkgrey">Ha Noi University of Science and Technology</div>
+      </div>
+      </nav> 
+{% endblock %}
+</body>
+</html>

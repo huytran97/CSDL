@@ -1,0 +1,28 @@
+{% extends 'home/home.html' %}
+{% load widget_tweaks %}
+{% block body_block %}
+    <div class="d-flex justify-content-center" style="background-color: white; margin-top: 100px; margin-bottom: 70px">
+        <div class="container card " style="width: 35rem;">
+            <form method='POST' action="{% url 'login' %}">
+                {% csrf_token %}
+                <h1 class="container card-header text-center">Đăng nhập</h1>
+                <hr class="my-4">
+                <div class="jumbotron card-body">
+                    <p>Email</p>
+                    <input class="form-control" type="email" name="email" placeholder="example@gmail.com" required/>
+                    <p></p>
+                    <p>Mật khẩu</p>              
+                    <input class="form-control" type="password" name="password" placeholder="Password" required/>
+                </div>
+                <p class="form-text text-right" style="color : blue"><a href="{% url 'register' %}">Đăng ký tài khoản</a></p>  
+                <p class="text-center"><input type="submit" class="btn btn-primary btn-lg" value="Đăng nhập" /></p>
+            </form>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark bottom">
+      <div class="container">
+            <div style="color :darkgrey">Copyright Group 9 - DATABASE © 2018</div>
+            <div style="color :darkgrey">Ha Noi University of Science and Technology</div>
+      </div>
+    </nav>
+{% endblock %}

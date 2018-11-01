@@ -1,0 +1,31 @@
+{% extends 'home/home.html' %}
+{% load widget_tweaks %}
+{% block body_block %}
+    <div class="d-flex justify-content-center" style="background-color: white; margin-top: 100px; margin-bottom: 70px">
+        <div class="container card " style="width: 35rem;">
+            <form method='POST' action="{% url 'register' %}">
+                {% csrf_token %}
+                <h1 class="container card-header text-center">Đăng ký</h1>
+                <hr class="my-4">
+                <div class="jumbotron card-body">
+                    <p>Họ và tên</p>
+                    <p>{% render_field form.last_name class="form-control" placeholder='aubrey richard' %}</p>
+                    <p>Email </p>
+                    <p>{% render_field form.email class="form-control" placeholder='example@gmail.com' %}</p>
+                    <p>Mật khẩu </p>              
+                    <p>{% render_field form.password class="form-control" placeholder='Password' %}</p>
+                    <p>Nhập lại mật khẩu</p>
+                    <p>{% render_field form.password_confirm class="form-control" placeholder='Password' %}</p>
+                </div>
+                <p class="form-text text-right" style="color : blue"><a href="{% url 'login' %}">Đăng nhập vào tài khoản</a></p>  
+                <p class="text-center"><input type="submit" class="btn btn-primary btn-lg" value="Đăng ký" /></p>
+            </form>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark bottom">
+      <div class="container">
+            <div style="color :darkgrey">Copyright Group 9 - DATABASE © 2018</div>
+            <div style="color :darkgrey">Ha Noi University of Science and Technology</div>
+      </div>
+    </nav>
+{% endblock %}
